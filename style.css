@@ -1,13 +1,41 @@
+/* Üldine stiil kogu lehe jaoks */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f0f0f0; /* Fallback background color */
+    background-image: url('./img/output.jpg'); /* Add your image path here */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center top; /* Centers the image */
+    background-attachment: fixed; /* Makes the background image stay fixed while scrolling */
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     margin: 0;
+    padding-top: 100px;
 }
 
+/* Header has no background image */
+header {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: a light background for better text visibility */
+    padding-bottom: 20px;
+    color: #333; /* Text color */
+}
+
+header h1 {
+    color: #1b25b1;
+    font-size: 4rem; /* Suurendab pealkirja suurust */
+    font-weight: bold; /* Tugevama fondi stiil */
+    letter-spacing: 2px; /* Suurendab tähtede vahelist kaugust */
+    padding: 20px; /* Lisa ruumi ümber pealkirja */
+    
+}
+
+/* Container (content below the header) */
 .container {
     text-align: center;
     background-color: white;
@@ -16,10 +44,12 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    color: #4CAF50;
+/* Mängu sisu tekst */
+h2 {
+    color: #333;
 }
 
+/* Nupu stiil */
 button {
     background-color: #4CAF50;
     color: white;
