@@ -1,0 +1,88 @@
+/* Üldine stiil kogu lehe jaoks */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Fallback background color */
+    background-image: url('./img/output.jpg'); /* Add your image path here */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center top; /* Centers the image */
+    background-attachment: fixed; /* Makes the background image stay fixed while scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    padding-top: 20px;
+}
+
+/* Header has no background image */
+header {
+    text-align: center;
+    width: 100%;
+    height: 50px; 
+    position: absolute;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 0; /* Adjusted padding to reduce space */
+    color: #333; /* Text color */
+}
+
+header h1 {
+    color: #1b25b1;
+    font-size: 2.5rem; /* Reduced font size from 4rem to 2.5rem */
+    font-weight: bold;
+    letter-spacing: 2px; 
+    padding: 0; /* Removed padding to make text fit better */
+    margin: 0; /* Removed margin to reduce extra space */
+    line-height: 1.2; /* Adjust line-height if needed for better vertical alignment */
+}
+
+
+/* Container (content below the header) */
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 80px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 540px; /* Adjust height as needed */
+    max-width: 900px; /* Set a maximum width to keep the container from stretching too wide */
+    width: 100%; /* Make the container take the full width until it reaches the max-width */
+    box-sizing: border-box; /* Ensures padding is included in the width calculation */
+
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Align children vertically */
+    justify-content: center; /* Vertically center the text */
+    align-items: center; /* Horizontally center the text */
+}
+
+/* Mängu sisu tekst (Paragraph) inside the container */
+.container p {
+    font-size: 18px; /* Adjust this value to make the paragraph text bigger */
+    color: #333; /* Keep the text color */
+    line-height: 1.6; /* Optional: Adjust line height for better readability */
+}
+
+/* Mängu sisu pealkiri (h2) inside the container */
+.container h2 {
+    font-size: 36px; /* Increase the font size for the h2 tag */
+    color: #333; /* Set text color */
+    font-weight: bold; /* Make the heading bold */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+/* Nupu stiil */
+button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 20px; /* Increase the font size to make the text bigger */
+    padding: 15px 30px; /* Increase padding to make the button bigger */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px; /* Move the button lower by adding margin at the top */
+}
+
+button:hover {
+    background-color: #1c551f;
+}
