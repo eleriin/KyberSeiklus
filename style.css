@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0; /* Fallback background color */
-    background-image: url('./img/output.jpg'); /* Add your image path here */
+    background-image: url('./img/taustapilt.jpg'); /* Add your image path here */
     background-size: cover; /* Ensures the image covers the entire background */
     background-position: center top; /* Centers the image */
     background-attachment: fixed; /* Makes the background image stay fixed while scrolling */
@@ -55,6 +55,29 @@ header h1 {
     justify-content: center; /* Vertically center the text */
     align-items: center; /* Horizontally center the text */
 }
+
+.desktop-container {
+    text-align: center;
+    background-image: url('./img/desktop.jpg'); /* Path to your image */
+    background-size: contain; /* Make sure the whole image is visible */
+    background-position: center; /* Keep the image centered */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    padding: 80px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 540px; /* Fixed height to match the container */
+    max-width: 900px; /* Fixed max width */
+    width: 100%; /* Ensure the width is 100% up to the max-width */
+    box-sizing: border-box; /* Ensure padding is included in width/height calculation */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 
 /* Mängu sisu tekst (Paragraph) inside the container */
 .container p {
