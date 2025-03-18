@@ -6,10 +6,10 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    flex-direction: column;
+    padding-top: 20px;
 }
 
-.container {
+s.container {
     text-align: center;
     background-color: white;
     padding: 30px;
@@ -18,8 +18,24 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    color: #3776c9;
+.desktop-container {
+    text-align: center;
+    background-image: url('./img/desktop.jpg'); /* Path to your image */
+    background-size: contain; /* Make sure the whole image is visible */
+    background-position: center; /* Keep the image centered */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    padding: 80px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 540px; /* Fixed height to match the container */
+    max-width: 900px; /* Fixed max width */
+    width: 100%; /* Ensure the width is 100% up to the max-width */
+    box-sizing: border-box; /* Ensure padding is included in width/height calculation */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
