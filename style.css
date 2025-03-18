@@ -12,6 +12,7 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
+    padding-top: 20px;
 }
 
 /* Header has no background image */
@@ -43,6 +44,7 @@ header h1 {
     background-color: rgba(255, 255, 255, 0.8); 
     padding: 80px;
     border-radius: 10px;
+    margin-bottom: 200px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: 540px; /* Adjust height as needed */
     max-width: 900px; /* Set a maximum width to keep the container from stretching too wide */
@@ -63,14 +65,37 @@ header h1 {
     background-repeat: no-repeat; /* Prevent the image from repeating */
     padding: 80px;
     border-radius: 10px;
-    margin-bottom: 200px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 540px; /* Fixed height to match the container */
+    max-width: 900px; /* Fixed max width */
+    width: 100%; /* Ensure the width is 100% up to the max-width */
+    box-sizing: border-box; /* Ensure padding is included in width/height calculation */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-h1 {
-    color: #4CAF50;
+
+
+
+/* Mängu sisu tekst (Paragraph) inside the container */
+.container p {
+    font-size: 18px; /* Adjust this value to make the paragraph text bigger */
+    color: #333; /* Keep the text color */
+    line-height: 1.6; /* Optional: Adjust line height for better readability */
 }
 
+/* Mängu sisu pealkiri (h2) inside the container */
+.container h2 {
+    font-size: 36px; /* Increase the font size for the h2 tag */
+    color: #333; /* Set text color */
+    font-weight: bold; /* Make the heading bold */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+/* Nupu stiil */
 button {
     background-color: #3776c9;
     color: white;
@@ -83,5 +108,5 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #1c551f;
 }
