@@ -1,4 +1,12 @@
-// localStorage.clear();
+document.addEventListener("DOMContentLoaded", function () {
+    let newTaskButton = document.getElementById("newTaskButton");
+    if (newTaskButton) {
+        newTaskButton.addEventListener("click", nextTask);
+    } else {
+        console.error("newTaskButton not found on this page.");
+    }
+});
+
 let currentTask = localStorage.getItem("currentTask") ? parseInt(localStorage.getItem("currentTask")) : 0;
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -22,6 +30,7 @@ function startGame() {
 // If you need to add functionality on the game page for a new task
 function nextTask() {
     // alert("Järgmine ülesanne algab!");
+    console.log("Next task.")
     currentTask += 1;
     localStorage.setItem("currentTask", currentTask);
     window.location.href = `task${currentTask}.html`;
