@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // When Wi-Fi button is clicked, toggle the dropdown list
     if (wifiButton) {
         wifiButton.addEventListener("click", function() {
+            console.log("Dropdown opened")
             // Toggle the display of the Wi-Fi dropdown
             wifiDropdown.style.display = (wifiDropdown.style.display === "block") ? "none" : "block";
         });
@@ -46,16 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // When a Wi-Fi network is selected
     wifiNetworks.forEach(function(network) {
         network.addEventListener("click", function() {
-            alert('You selected: ' + network.textContent); // Show an alert with the selected network
+//            alert('You selected: ' + network.textContent); // Show an alert with the selected network
             wifiDropdown.style.display = "none"; // Hide the dropdown after selection
         });
-    });
-
-    // When the user clicks anywhere outside of the dropdown, close it
-    window.addEventListener("click", function(event) {
-        if (!wifiButton.contains(event.target) && !wifiDropdown.contains(event.target)) {
-            wifiDropdown.style.display = "none"; // Close the dropdown if clicked outside
-        }
     });
 
     // Modal Handling for Ülesanne 1
@@ -77,3 +71,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+function wifi1() {
+    console.log("wifi1 clicked")
+    document.getElementById("wifi1").style.display="block";
+    document.getElementById("wifi-button").style.display="none";
+}
+
+function wifi2() {
+    console.log("wifi2 clicked")
+    document.getElementById("wifi2").style.display="block";
+    document.getElementById("wifi-button").style.display="none";
+}
+
+function wifi3() {
+    console.log("wifi3 clicked")
+    document.getElementById("wifi3").style.display="block";
+    document.getElementById("wifi-button").style.display="none";
+}
+
+function toggleWifiDropdown() {
+    console.log("Dropdown toggled")
+    // Toggle the display of the Wi-Fi dropdown
+    wifiDropdown.style.display = (wifiDropdown.style.display === "block") ? "none" : "block";
+}
