@@ -30,41 +30,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Wi-Fi Button functionality on task1.html
+    // Wi-Fi Button functionality on task1.html (updated for dropdown functionality)
     var wifiButton = document.querySelector(".wifi-button");
-    var wifiModal = document.getElementById("wifiModal");
-    var closeModal = document.getElementsByClassName("close")[0];
+    var wifiDropdown = document.getElementById("wifiDropdown"); // Dropdown for Wi-Fi networks
     var wifiNetworks = document.querySelectorAll(".wifi-network");
 
-    // When Wi-Fi button is clicked, show the modal
+    // When Wi-Fi button is clicked, toggle the dropdown list
     if (wifiButton) {
         wifiButton.addEventListener("click", function() {
-            wifiModal.style.display = "block"; // Show the modal
-            wifiButton.classList.add("hidden"); // Hide the Wi-Fi button when modal is shown
+            // Toggle the display of the Wi-Fi dropdown
+            wifiDropdown.style.display = (wifiDropdown.style.display === "block") ? "none" : "block";
         });
     }
-
-    // When the user clicks the close button, close the modal
-    closeModal.onclick = function() {
-        wifiModal.style.display = "none"; // Hide the modal
-        wifiButton.classList.remove("hidden"); // Show the Wi-Fi button again
-    };
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == wifiModal) {
-            wifiModal.style.display = "none"; // Close the modal if clicked outside
-            wifiButton.classList.remove("hidden"); // Show the Wi-Fi button again
-        }
-    };
 
     // When a Wi-Fi network is selected
     wifiNetworks.forEach(function(network) {
         network.addEventListener("click", function() {
             alert('You selected: ' + network.textContent); // Show an alert with the selected network
-            wifiModal.style.display = "none"; // Hide the modal after selection
-            wifiButton.classList.remove("hidden"); // Show the Wi-Fi button again
+            wifiDropdown.style.display = "none"; // Hide the dropdown after selection
         });
+    });
+
+    // When the user clicks anywhere outside of the dropdown, close it
+    window.addEventListener("click", function(event) {
+        if (!wifiButton.contains(event.target) && !wifiDropdown.contains(event.target)) {
+            wifiDropdown.style.display = "none"; // Close the dropdown if clicked outside
+        }
     });
 
     // Modal Handling for Ülesanne 1

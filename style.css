@@ -179,21 +179,24 @@ header h1 {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4); /* Black background with transparency */
-    padding-top: 60px;
+    padding-top: 10%; /* Adjusted to center the modal more vertically */
 }
 
 /* Modal Content */
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto;
+    margin: auto; /* Center the modal horizontally */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Adjust width as necessary */
+    width: 50%; /* Set the width of the modal */
+    max-width: 600px; /* Max width to prevent it from being too wide */
+    border-radius: 10px; /* Optional: rounded corners for a more modern look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: add a shadow effect for better visibility */
 }
 
 /* Close Button */
 .close {
-    color: #aaa;
+    color: #f50404;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -230,8 +233,40 @@ header h1 {
     outline: none; /* Remove outline on focus for cleaner appearance */
 }
 
-/* Hidden class to hide Wi-Fi button when modal is shown */
+/* Wi-Fi Network Dropdown */
+.wifi-dropdown {
+    display: none; /* Hide by default */
+    position: absolute;
+    bottom: 40px; /* Place dropdown above the button */
+    left: 500px; /* Align with the button */
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    z-index: 999; /* Ensure it's above other content */
+}
+
+.wifi-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wifi-dropdown li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.wifi-dropdown li:hover {
+    background-color: #12e912;
+}
+
+.wifi-dropdown li:last-child {
+    border-bottom: none; /* Remove border on last item */
+}
+
+/* Hidden class to hide Wi-Fi dropdown when the modal is shown */
 .wifi-button.hidden {
     display: none;
 }
-
