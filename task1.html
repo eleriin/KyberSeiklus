@@ -20,29 +20,31 @@
             <li><button class="task-btn" data-task="3">Ülesanne 3</button></li>
         </ul>
     </div>
-
+    
     <div class="desktop-container">
-        <!-- Wi-Fi Button -->
-        <button class="wifi-button">
-            <i class="fas fa-wifi"> VAJUTA SIIA</i> <!-- Wi-Fi icon -->
-        </button>
+        <div id="wifi-container">
+                    <!-- Wi-Fi Button -->
+            <button id="wifi-button" onClick="toggleWifiDropdown()">
+                <i class="fas fa-wifi"> VAJUTA SIIA</i> <!-- Wi-Fi icon -->
+            </button>
 
-        <!-- Wi-Fi Networks Dropdown -->
-        <div id="wifiDropdown" class="wifi-dropdown">
-            <ul>
-                <li class="wifi-network" data-info="Avalik Wi-Fi, turvalisus madal, igaüks saab kasutada">Avalik_CoffeeShop (paroolita Wi-Fi)</li>
-                <li class="wifi-network" data-info="Privaatne Wi-Fi, turvalisus kõrge, ainult kohviku külastajatele">Külastaja_Hotspot (paroolita hotspot)</li>
-                <li class="wifi-network" data-info="Hotspot, turvalisus madal, võib olla ohtlik">CoffeeShop_Privaatne (parooliga Wi-Fi)</li>
-            </ul>
-        </div>
-
-        <!-- Info Section for Selected Wi-Fi Network -->
-        <div id="wifiInfo" class="wifi-info">
-            <h3 id="networkName"></h3>
-            <p id="networkDetails"></p>
+            <!-- Wi-Fi Networks (Now it's a dropdown near the Wi-Fi button) -->
+            <div id="wifiDropdown" class="wifi-dropdown">
+                <button class="wifi-network" onClick="wifi1()">Kohviku AVALIK võrk</button>
+                <button class="wifi-network" onClick="wifi2()">Kohviku PRIVAATNE võrk</button>
+                <button class="wifi-network" onClick="wifi3()">Külastaja HOTSPOT</button>
+            </div>
         </div>
     </div>
-
+    <div id="wifi1">
+        <p>Valisid Kohviku AVALIK võrk</p>
+    </div>
+    <div id="wifi2">
+        <p>Valisid Kohviku PRIVAATNE võrk</p>
+    </div>
+    <div id="wifi3">
+        <p>Valisid Külastaja HOTSPOT</p>
+    </div>
     <!-- Task 1 Modal -->
     <div id="taskModal" class="modal">
         <div class="modal-content">
@@ -57,11 +59,12 @@
             <br>
             Ekraanil kuvatakse järgmised Wi-Fi võrgu valikud:
             <ul>
-                <li>Kohviku avalik Wi-Fi: Avalik_CoffeeShop (paroolita Wi-Fi)</li>
-                <li>Võõras hotspot: Külastaja_Hotspot (paroolita hotspot)</li>
-                <li>Kohviku privaatne Wi-Fi: CoffeeShop_Privaatne(parooliga Wi-Fi)</li>
+                <li>Kohviku avalik Wi-Fi: Public_CoffeeShop (Avalik Wi-Fi)</li>
+                <li>Võõras hotspot: Person1_Hotspot (Isiklik hotspot)</li>
+                <li>Kohviku privaatne Wi-Fi: CoffeeShop_Private (Privaatne Wi-Fi)</li>
             </ul>
         </div>
+    </div>
     </div>
 
     <script src="script.js"></script>

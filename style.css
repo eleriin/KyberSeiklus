@@ -210,7 +210,12 @@ header h1 {
 }
 
 /* Wi-Fi Button (visible by default) */
-.wifi-button {
+.wifi-container {
+    position: relative;
+}
+
+/* Wi-Fi Button (visible by default) */
+#wifi-button {
     position: absolute; /* Position the button relative to .desktop-container */
     bottom: 40px; /* Distance from the bottom of the container */
     right: 400px; /* Distance from the right of the container */
@@ -225,11 +230,11 @@ header h1 {
     transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
-.wifi-button:hover {
+#wifi-button:hover {
     background-color: rgba(0, 0, 0, 0.8); /* Change background on hover */
 }
 
-.wifi-button:focus {
+#wifi-button:focus {
     outline: none; /* Remove outline on focus for cleaner appearance */
 }
 
@@ -237,8 +242,8 @@ header h1 {
 .wifi-dropdown {
     display: none; /* Hide by default */
     position: absolute;
-    bottom: 40px; /* Place dropdown above the button */
-    left: 500px; /* Align with the button */
+    bottom: 60px; /* Place dropdown above the button */
+    left: 690px; /* Align with the button */
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -246,29 +251,40 @@ header h1 {
     z-index: 999; /* Ensure it's above other content */
 }
 
-.wifi-dropdown ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.wifi-dropdown li {
+.wifi-dropdown button {
     padding: 10px;
+    background: #fff;
     cursor: pointer;
     border-bottom: 1px solid #ddd;
+    width: 100%;
 }
 
-.wifi-dropdown li:hover {
+.wifi-dropdown button:hover {
     background-color: #12e912;
 }
 
-.wifi-dropdown li:last-child {
+.wifi-dropdown button:last-child {
     border-bottom: none; /* Remove border on last item */
 }
 
 /* Hidden class to hide Wi-Fi dropdown when the modal is shown */
 .wifi-button.hidden {
     display: none;
+}
+
+#wifi1,
+#wifi2,
+#wifi3 {
+    display: none;
+    position: fixed;
+    background-color: #fefefe;
+    margin: auto; /* Center the modal horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Set the width of the modal */
+    max-width: 600px; /* Max width to prevent it from being too wide */
+    border-radius: 10px; /* Optional: rounded corners for a more modern look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: add a shadow effect for better visibility */
 }
 /*Task2.email diasin*/
 #inbox {
