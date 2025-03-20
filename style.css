@@ -364,3 +364,114 @@ header h1 {
     margin-bottom: 20px;
     color: #444;
 }
+
+/* Panga disain*/
+.main-container {
+    text-align: center;
+    background-size: contain; /* Make sure the whole image is visible */
+    background-position: center; /* Keep the image centered */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    padding: 80px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 540px; /* Fixed height to match the container */
+    max-width: 900px; /* Fixed max width */
+    width: 100%; /* Ensure the width is 100% up to the max-width */
+    box-sizing: border-box; /* Ensure padding is included in width/height calculation */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pank-container {
+    text-align: center;
+    background-size: contain; /* Make sure the whole image is visible */
+    background-position: center; /* Keep the image centered */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    padding: 80px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 540px; /* Fixed height to match the container */
+    max-width: 900px; /* Fixed max width */
+    width: 100%; /* Ensure the width is 100% up to the max-width */
+    box-sizing: border-box; /* Ensure padding is included in width/height calculation */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.safe {
+    background-color: lightgreen;
+    color: black;
+}
+.warning {
+    background-color: lightcoral;
+    color: black;
+}
+.search-result {
+    text-align: left;
+    margin: 15px 0;
+}
+.search-result a {
+    color: #8ab4f8;
+    font-size: 18px;
+}
+.search-result p {
+    font-size: 14px;
+    color: #bdc1c6;
+}
+.bank-container {
+    max-width: 400px;
+    margin: auto;
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+}
+.bank-container input {
+    width: 90%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.bank-container button {
+    background: orange;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.description-box {
+    background-color: yellow;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    width: 300px;
+    position: absolute;
+    right: 0;
+    margin-top: 20px;
+}
+.login-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+.left-side {
+    width: 60%;
+}

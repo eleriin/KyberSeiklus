@@ -3,114 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panga harjutus</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1E3A8A;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            height: 100vh;
-            margin: 0;
-        }
-        .main-container {
-            display: flex;
-            justify-content: center;
-            width: 90%;
-            max-width: 1200px;
-            position: relative;
-            margin-top: 220px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: #303134;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .hidden {
-            display: none;
-        }
-        .message {
-            margin-top: 20px;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .safe {
-            background-color: lightgreen;
-            color: black;
-        }
-        .warning {
-            background-color: lightcoral;
-            color: black;
-        }
-        .search-result {
-            text-align: left;
-            margin: 15px 0;
-        }
-        .search-result a {
-            color: #8ab4f8;
-            font-size: 18px;
-        }
-        .search-result p {
-            font-size: 14px;
-            color: #bdc1c6;
-        }
-        .bank-container {
-            max-width: 400px;
-            margin: auto;
-            background: white;
-            color: black;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .bank-container input {
-            width: 90%;
-            padding: 8px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .bank-container button {
-            background: orange;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .description-box {
-            background-color: yellow;
-            color: black;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: left;
-            width: 300px;
-            position: absolute;
-            right: 0;
-            margin-top: 20px;
-        }
-        .login-container {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            position: relative;
-        }
-        .left-side {
-            width: 60%;
-        }
-        .right-side {
-            width: 40%;
-        }
-    </style>
+    <title>KyberSeiklus - Ülesanne 3</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <header>
+        <h1>KÜBERSEIKLUS - Pank</h1>
+    </header>
+        <div class="right-panel">
+        <h3>Ülesanded</h3>
+        <ul>
+            <li><button class="task-btn" data-task="1">Ülesanne 1</button></li>
+            <li><button class="task-btn" data-task="2">Ülesanne 2</button></li>
+            <li><button class="task-btn" data-task="3">Ülesanne 3</button></li>
+        </ul>
+    </div>
+
+    <!-- Task 3 Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Ülesanne 2: Pahatahtlike emailide kustutamine</h2>
+            <p>Minge pangalehele ja logige sisse. Kasutajanime ja parooli võite ise valida 
+                (ärge sisetage oma päris panga andmeid).</p>
+        </div>
+    </div>
     <div class="main-container">
         <div class="login-container">
             <div class="left-side">
-                <div class="container" id="startScreen">
+                <div class="pank-container" id="startScreen">
                     <h2>Otsingutulemused</h2>
                     <div class="search-result">
                         <a href="#" onclick="openPage(true)">Swedbank Group | Swedbank</a>
@@ -161,13 +83,6 @@
                     <h2>Sisselogimine õnnestus!</h2>
                     <p class="message safe">Lõite turvalise parooli ja sisenesite autentsele panga lehele ning sellega Olete ülesande endukalt sooritanud</p>
                     <button onclick="goToHome()">Tagasi avalehele</button>
-                </div>
-            </div>
-
-            <div class="right-side">
-                <div class="description-box">
-                    <h3>Ülesande Kirjeldus</h3>
-                    <p>Minge pangalehele ja logige sisse. Kasutajanime ja parooli võite ise valida (ärge sisetage oma päris panga andmeid).</p>
                 </div>
             </div>
         </div>
