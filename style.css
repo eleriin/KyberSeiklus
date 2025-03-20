@@ -17,6 +17,20 @@ s.container {
     margin-bottom: 200px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+/* Mängu sisu tekst (Paragraph) inside the container */
+.container p {
+    font-size: 18px; /* Adjust this value to make the paragraph text bigger */
+    color: #333; /* Keep the text color */
+    line-height: 1.6; /* Optional: Adjust line height for better readability */
+}
+
+/* Mängu sisu pealkiri (h2) inside the container */
+.container h2 {
+    font-size: 36px; /* Increase the font size for the h2 tag */
+    color: #333; /* Set text color */
+    font-weight: bold; /* Make the heading bold */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
 
 .desktop-container {
     text-align: center;
@@ -38,8 +52,27 @@ s.container {
     align-items: center;
 }
 
+
+
+
+/* Mängu sisu tekst (Paragraph) inside the container */
+.container p {
+    font-size: 18px; /* Adjust this value to make the paragraph text bigger */
+    color: #333; /* Keep the text color */
+    line-height: 1.6; /* Optional: Adjust line height for better readability */
+}
+
+/* Mängu sisu pealkiri (h2) inside the container */
+.container h2 {
+    font-size: 36px; /* Increase the font size for the h2 tag */
+    color: #333; /* Set text color */
+    font-weight: bold; /* Make the heading bold */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+/* Nupu stiil */
 button {
-    background-color: #3776c9;
+    background-color: #4CAF50;
     color: white;
     font-size: 16px;
     padding: 10px 20px;
@@ -49,13 +82,108 @@ button {
 }
 
 button:hover {
-    background-color: #0549a1;
+    background-color: #1c551f;
 }
 
-.pealkiri {
-    text-align: center;
+/* Modal (Hidden by default) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Black background with transparency */
+    padding-top: 10%; /* Adjusted to center the modal more vertically */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto; /* Center the modal horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Set the width of the modal */
+    max-width: 600px; /* Max width to prevent it from being too wide */
+    border-radius: 10px; /* Optional: rounded corners for a more modern look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: add a shadow effect for better visibility */
+}
+
+/* Close Button */
+.close {
+    color: #f50404;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Wi-Fi Button (visible by default) */
+.wifi-button {
+    position: absolute; /* Position the button relative to .desktop-container */
+    bottom: 40px; /* Distance from the bottom of the container */
+    right: 400px; /* Distance from the right of the container */
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent background */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 30px; /* Adjust size of the icon */
+    cursor: pointer;
+    z-index: 900; /* Ensure the button is above other content */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.wifi-button:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Change background on hover */
+}
+
+.wifi-button:focus {
+    outline: none; /* Remove outline on focus for cleaner appearance */
+}
+
+/* Wi-Fi Network Dropdown */
+.wifi-dropdown {
+    display: none; /* Hide by default */
+    position: absolute;
+    bottom: 40px; /* Place dropdown above the button */
+    left: 500px; /* Align with the button */
     background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    z-index: 999; /* Ensure it's above other content */
+}
+
+.wifi-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wifi-dropdown li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.wifi-dropdown li:hover {
+    background-color: #12e912;
+}
+
+.wifi-dropdown li:last-child {
+    border-bottom: none; /* Remove border on last item */
+}
+
+/* Hidden class to hide Wi-Fi dropdown when the modal is shown */
+.wifi-button.hidden {
+    display: none;
 }
