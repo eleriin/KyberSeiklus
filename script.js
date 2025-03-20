@@ -43,11 +43,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // When a Wi-Fi network is selected
+    // When a Wi-Fi network is selected, show its details
     wifiNetworks.forEach(function(network) {
         network.addEventListener("click", function() {
-            alert('You selected: ' + network.textContent); // Show an alert with the selected network
-            wifiDropdown.style.display = "none"; // Hide the dropdown after selection
+            // Get the info from the selected network's data-info attribute
+            var info = network.getAttribute("data-info");
+
+            // Show the selected network's name and details in the info section
+            var wifiInfoSection = document.getElementById("wifiInfo");
+            var networkName = document.getElementById("networkName");
+            var networkDetails = document.getElementById("networkDetails");
+
+            networkName.textContent = network.textContent; // Set the network name
+            networkDetails.textContent = info; // Set the network details
+
+            // Show the Wi-Fi info section
+            wifiInfoSection.style.display = "block";
+
+            // Hide the Wi-Fi dropdown after selection
+            wifiDropdown.style.display = "none";
+
+            // Optionally, show a confirmation message (alert)
+            alert('You selected: ' + network.textContent + "\n" + info);
         });
     });
 
@@ -77,42 +94,104 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-document.addEventListener("DOMContentLoaded", function () {
-    let newTaskButton = document.getElementById("newTaskButton");
-    if (newTaskButton) {
-        newTaskButton.addEventListener("click", nextTask);
+
+
+function deleteEmail(emailNumber) {
+    const email = document.getElementById('email' + emailNumber);
+    const emailContent = document.getElementById('content' + emailNumber); // Corresponding email content
+
+    const isScam = email.getAttribute('data-is-scam') === 'true';
+    
+    if (isScam) {
+
+        const confirmDelete = confirm("Oled kindel, et tahad kustutada kahtlase e-kirja?");
+        if (!confirmDelete) {
+            return; 
+        }
+        message="see oli kahtlane kiri!"
+    }
+
+    const isNotScam = email.getAttribute('data-is-not-scam') === 'true';
+
+    if(isNotScam) {
+
+        const confirmDelete = confirm("oled kindel et kustutada kirja")
+        if (!confirmDelete) {
+            return;
+        }
+        message ="see ei olnud kahtlane kiri!";
+    }
+
+
+    if (email) {
+        email.style.display = 'none'; 
+    }
+    
+    if (emailContent) {
+        emailContent.style.display = 'none'; 
+    }
+    
+}
+
+
+function showPopup(message) {
+    const popupMessage = document.getElementById('popupMessage');
+    popupMessage.textContent = message;
+    const modal = document.getElementById('deletePopup');
+    modal.style.display = "block"; 
+}
+
+
+function closePopup() {
+    const modal = document.getElementById('deletePopup');
+    modal.style.display = "none"; 
+}
+
+
+function delete1() {
+    deleteEmail(1);
+}
+function delete2() {
+    deleteEmail(2);
+}
+function delete3() {
+    deleteEmail(3);
+}
+function delete4() {
+    deleteEmail(4);
+}
+function delete5() {
+    deleteEmail(5);
+}
+
+
+//TASK 3 - Pank
+function fakeLogin() {
+    document.getElementById('phishingScreen').classList.add('hidden');
+    document.getElementById('warningScreen').classList.remove('hidden');
+}
+
+
+function goBack() {
+    document.getElementById('phishingScreen').classList.add('hidden');
+    document.getElementById('successScreen').classList.remove('hidden');
+}
+
+
+function goToHome() {
+    document.querySelectorAll('.container, .bank-container').forEach(el => el.classList.add('hidden'));
+    document.getElementById('startScreen').classList.remove('hidden');
+}
+
+
+function realLogin() {
+    const password = document.getElementById("realPassword").value;
+    const message = document.getElementById("passwordMessage");
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+   
+    if (regex.test(password)) {
+        alert("Sisselogimine õnnestus!");
     } else {
-        console.error("newTaskButton not found on this page.");
+        message.textContent = "Parool peab sisaldama vähemalt 8 tähemärki, ühte suurt tähte, ühte väikest tähte, ühte numbrit ja ühte sümbolit.";
     }
-});
-
-let currentTask = localStorage.getItem("currentTask") ? parseInt(localStorage.getItem("currentTask")) : 0;
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Check if we are on the starting page (index.html)
-    if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
-        console.log("Resetting task progress to 0");
-        localStorage.setItem("currentTask", "0"); // Reset task progress
-        console.log("Task progress reset to 0");
-    }
-})
-
-// Event listener for the "Alusta mängu" button on the main page
-function startGame() {
-    currentTask = 1
-    localStorage.setItem("currentTask", currentTask);
-    console.log(currentTask)
-    window.location.href = "task1.html"; // Redirects to the game page
-};
-
-
-// If you need to add functionality on the game page for a new task
-function nextTask() {
-    // alert("Järgmine ülesanne algab!");
-    console.log("Next task.")
-    currentTask += 1;
-    localStorage.setItem("currentTask", currentTask);
-    window.location.href = `task${currentTask}.html`;
-    console.log(currentTask)
-    // You can replace the content here or trigger new game tasks
-};
+}

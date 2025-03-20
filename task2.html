@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KyberSeiklus - Ülesanne 1</title>
+    <title>KyberSeiklus - Mängu algus</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>KÜBERSEIKLUS - Ülesanne 1</h1>
+        <h1>KÜBERSEIKLUS - Email</h1>
     </header>
 
     <div class="right-panel">
@@ -20,48 +20,127 @@
         </ul>
     </div>
 
-    <!-- Modal for Task 1 -->
-    <div>
-        <div>
-            <span></span>
-            <h2>Ülesanne 2: Õige Wi-Fi võrgu valimine</h2>
-            <p>Siin on ülesande sisu, kus tuleb valida õige Wi-Fi võrgu seaded ja lahendada ülesandeid.</p>
+        <!-- Task 2 Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Ülesanne 2: Pahatahtlike emailide kustutamine</h2>
+            <p>
+                Oled alustanud päeva, kohv käes ja e-kirjad ootavad. Kuid midagi on valesti – postkast on täis kahtlaseid kirju.
+                <br>
+                 Kas need sisaldavad viirust või pahavara? Iga kiri, mille avad, võib olla lõks.
+                 <br>
+                  Sinu ülesanne on kiiresti eristada ohutud kirjad nendest, mis tuleb kustutada, et oma arvutit kaitsta.
+            <br>
+                Valmis? Alustame, kustuta kõik pahatahtlikud e-kirjad!
+            </p>          
         </div>
     </div>
+    <div id="game">
+        <div id="inbox">
+            <h2 id="inboxTitle">Sinu e-kirjade postkast</h2>
+            <!-- Modal for Success Message -->
 
-    <script src="script.js"></script>
-</body>
-</html>
+            
+            
+            <!-- Email 1 -->
+            <div class="email" id="email1" data-is-scam="true">
+                <div class="email-checkbox">
+                    <input type="checkbox" class="email-select">
+                </div>
+                <div class="email-sender">
+                    <span class="email-label">From: </span><span class="email-text">test@test.com</span>
+                </div>
+                <div class="email-topic">
+                    <span class="email-label">Subject: </span><span class="email-text">This is a test mail 1</span>
+                </div>
+                <div class="email-actions">
+                    <button class="deleteEmailButton" onClick="delete1()">Kustuta</button>
+                </div>
+            </div>
+            <div class="email-content" id="content1">
+                <p>This is the content of email 1. Here is the plot of the email...</p>
+            </div>
 
-<!DOCTYPE html>
-<html lang="et">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KyberSeiklus - Mängu algus</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>KÜBERSEIKLUS - Mängu algus</h1>
-    </header>
+            <!-- Email 2 -->
+            <div class="email" id="email2" data-is-not-scam="true">
+                <div class="email-checkbox">
+                    <input type="checkbox" class="email-select">
+                </div>
+                <div class="email-sender">
+                    <span class="email-label">From: </span><span class="email-text">test@test.com</span>
+                </div>
+                <div class="email-topic">
+                    <span class="email-label">Subject: </span><span class="email-text">This is a test mail 2</span>
+                </div>
+                <div class="email-actions">
+                    <button class="deleteEmailButton" onClick="delete2()">Kustuta</button>
+                </div>
+            </div>
+            <div class="email-content" id="content2">
+                <p>This is the content of email 1. Here is the plot of the email...</p>
+            </div>
 
-    <div class="desktop-container">
-        <h2>Ülesanne 2: Otsing</h2>
-        <p>
-            Lugu:
-            
-            Sa istud hubases kohvikus, kus aknast paistab kevadine päike. Ees ootab tähtis töökohtumine ja saad lõpuks mõned e-kirjad ära saata. Kuid et teha oma tööd, tuleb sul kõigepealt ühendada Wi-Fi-ga. Kohvikus on mitmed võrguühendused saadaval ja sul on vaja teha kiire valik. Mõni neist on turvaline, mõni aga võib sind viia ohtlikesse vetesse. Kas suudad valida õigesti?
-            
-            Ekraanil kuvatakse järgmised Wi-Fi võrgu valikud:
-            
-            Kohviku avalik Wi-Fi: Public_CoffeeShop (Avalik Wi-Fi)
-            Naabri hotspot: Person1_Hotspot (Isiklik hotspot)
-            Kohviku privaatne Wi-Fi: CoffeeShop_Private (Privaatne Wi-Fi)
-            Sinu enda hotspot: My_Hotspot (Minu hotspot)</p>
-        <button id="newTaskButton">Alusta järgmist ülesannet</button>
+            <!-- Email 3 -->
+            <div class="email" id="email3" data-is-scam="true">
+                <div class="email-checkbox">
+                    <input type="checkbox" class="email-select">
+                </div>
+                <div class="email-sender">
+                    <span class="email-label">From: </span><span class="email-text">test@test.com</span>
+                </div>
+                <div class="email-topic">
+                    <span class="email-label">Subject: </span><span class="email-text">This is a test mail 3</span>
+                </div>
+                <div class="email-actions">
+                    <button class="deleteEmailButton" onClick="delete3()">Kustuta</button>
+                </div>
+            </div>
+            <div class="email-content" id="content3">
+                <p>This is the content of email 1. Here is the plot of the email...</p>
+            </div>
+
+            <!-- Email 4 -->
+            <div class="email" id="email4" data-is-not-scam="true">
+                <div class="email-checkbox">
+                    <input type="checkbox" class="email-select">
+                </div>
+                <div class="email-sender">
+                    <span class="email-label">From: </span><span class="email-text">test@test.com</span>
+                </div>
+                <div class="email-topic">
+                    <span class="email-label">Subject: </span><span class="email-text">This is a test mail 4</span>
+                </div>
+                <div class="email-actions">
+                    <button class="deleteEmailButton" onClick="delete4()">Kustuta</button>
+                </div>
+            </div>
+            <div class="email-content" id="content4">
+                <p>This is the content of email 1. Here is the plot of the email...</p>
+            </div>
+
+
+            <!-- Email 5 -->
+            <div class="email" id="email5" data-is-not-scam="true">
+                <div class="email-checkbox">
+                    <input type="checkbox" class="email-select">
+                </div>
+                <div class="email-sender">
+                    <span class="email-label">From: </span><span class="email-text">test@test.com</span>
+                </div>
+                <div class="email-topic">
+                    <span class="email-label">Subject: </span><span class="email-text">This is a test mail 5</span>
+                </div>
+                <div class="email-actions">
+                    <button class="deleteEmailButton" onClick="delete5()">Kustuta</button>
+                </div>
+            </div>
+            <div class="email-content" id="content5">
+                <p>This is the content of email 1. Here is the plot of the email...</p>
+            </div>
+
+        </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
