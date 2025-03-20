@@ -3,32 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KyberSeiklus - Ülesanne 1</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Panga harjutus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1E3A8A;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+        }
+        .main-container {
+            display: flex;
+            justify-content: center;
+            width: 90%;
+            max-width: 1200px;
+            position: relative;
+            margin-top: 220px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #303134;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .hidden {
+            display: none;
+        }
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .safe {
+            background-color: lightgreen;
+            color: black;
+        }
+        .warning {
+            background-color: lightcoral;
+            color: black;
+        }
+        .search-result {
+            text-align: left;
+            margin: 15px 0;
+        }
+        .search-result a {
+            color: #8ab4f8;
+            font-size: 18px;
+        }
+        .search-result p {
+            font-size: 14px;
+            color: #bdc1c6;
+        }
+        .bank-container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .bank-container input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .bank-container button {
+            background: orange;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .description-box {
+            background-color: yellow;
+            color: black;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+            width: 300px;
+            position: absolute;
+            right: 0;
+            margin-top: 20px;
+        }
+        .login-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: relative;
+        }
+        .left-side {
+            width: 60%;
+        }
+        .right-side {
+            width: 40%;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>KÜBERSEIKLUS - Ülesanne 1</h1>
-    </header>
+    <div class="main-container">
+        <div class="login-container">
+            <div class="left-side">
+                <div class="container" id="startScreen">
+                    <h2>Otsingutulemused</h2>
+                    <div class="search-result">
+                        <a href="#" onclick="openPage(true)">Swedbank Group | Swedbank</a>
+                        <p>Eesti mainekaim pank, mis toetab inimeste, ettevõtete ja ühiskonna arengut. Tutvu lähemalt igapäevaste pangatoimingute, finantseerimise, kindlustuse, ...</p>
+                    </div>
+                    <div class="search-result">
+                        <a href="#" onclick="openPage(false)">Svvedbank Login - Kiire sissepääs</a>
+                        <p>Eesti mainekaim pank, mis toetab inimeste, ettevõtete ja ühiskonna arengut. Tutvu lähemalt igapäevaste pangatoimingute, finantseerimise, kindlustuse, ...</p>
+                    </div>
+                </div>
 
-    <div class="right-panel">
-        <h3>Ülesanded</h3>
-        <ul>
-            <li><button class="task-btn" data-task="1">Ülesanne 1</button></li>
-            <li><button class="task-btn" data-task="2">Ülesanne 2</button></li>
-            <li><button class="task-btn" data-task="3">Ülesanne 3</button></li>
-        </ul>
-    </div>
 
-    <!-- Modal for Task 1 -->
-    <div>
-        <div>
-            <span></span>
-            <h2>Ülesanne 3: Õige Wi-Fi võrgu valimine</h2>
-            <p>Siin on ülesande sisu, kus tuleb valida õige Wi-Fi võrgu seaded ja lahendada ülesandeid.</p>
+                <div class="bank-container hidden" id="safeScreen">
+                    <h2>Swedbanki ametlik sisselogimine</h2>
+                    <p>Sisestage oma andmed:</p>
+                    <input type="text" placeholder="Kasutajanimi" id="realUsername"><br>
+                    <input type="password" placeholder="Parool" id="realPassword"><br>
+                    <p id="passwordMessage" style="color: red;"></p>
+                    <button onclick="realLogin()">Logi sisse</button>
+                    <button onclick="goToHome()">Tagasi</button>
+                </div>
+
+                <div class="bank-container hidden" id="phishingScreen">
+                    <h2>Swedbank</h2>
+                    <p>Svvedbank kiire sissepääs. </p>
+                    <input type="text" placeholder="Kasutajanimi" id="username"><br>
+                    <input type="password" placeholder="Parool" id="password"><br>
+                    <button onclick="fakeLogin()">Logi sisse</button>
+                    <button onclick="goBack()">Tagasi</button>
+                </div>
+
+
+                <div class="container hidden" id="warningScreen">
+                    <h2>Olete langenud pettuse ohvriks!</h2>
+                    <p class="message warning">Teie andmed on nüüd petturite käes. Olge järgmine kord ettevaatlikum!</p>
+                    <button onclick="goToHome()">Tagasi avalehele</button>
+                </div>
+
+
+                <div class="container hidden" id="successScreen">
+                    <h2>Hea töö!</h2>
+                    <p class="message safe">Märkasite enne andmete sisestamist, et see oli vale leht!</p>
+                    <button onclick="goToHome()">Tagasi avalehele</button>
+                </div>
+
+
+                <div class="container hidden" id="realSuccessScreen">
+                    <h2>Sisselogimine õnnestus!</h2>
+                    <p class="message safe">Lõite turvalise parooli ja sisenesite autentsele panga lehele ning sellega Olete ülesande endukalt sooritanud</p>
+                    <button onclick="goToHome()">Tagasi avalehele</button>
+                </div>
+            </div>
+
+            <div class="right-side">
+                <div class="description-box">
+                    <h3>Ülesande Kirjeldus</h3>
+                    <p>Minge pangalehele ja logige sisse. Kasutajanime ja parooli võite ise valida (ärge sisetage oma päris panga andmeid).</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function openPage(isSafe) {
+            document.getElementById('startScreen').classList.add('hidden');
+            if (isSafe) {
+                document.getElementById('safeScreen').classList.remove('hidden');
+            } else {
+                document.getElementById('phishingScreen').classList.remove('hidden');
+            }
+        }
+
+        function fakeLogin() {
+            document.getElementById('phishingScreen').classList.add('hidden');
+            document.getElementById('warningScreen').classList.remove('hidden');
+        }
+
+        function goBack() {
+            document.getElementById('phishingScreen').classList.add('hidden');
+            document.getElementById('successScreen').classList.remove('hidden');
+        }
+
+        function goToHome() {
+            document.querySelectorAll('.container, .bank-container').forEach(el => el.classList.add('hidden'));
+            document.getElementById('startScreen').classList.remove('hidden');
+        }
+
+        function realLogin() {
+            const password = document.getElementById("realPassword").value;
+            const message = document.getElementById("passwordMessage");
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (regex.test(password)) {
+                document.getElementById('safeScreen').classList.add('hidden');
+                document.getElementById('realSuccessScreen').classList.remove('hidden');
+            } else {
+                message.textContent = "Parool peab sisaldama vähemalt 8 tähemärki, ühte suurt tähte, ühte väikest tähte, ühte numbrit ja ühte sümbolit.";
+            }
+        }
+    </script>
 </body>
 </html>

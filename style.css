@@ -168,7 +168,7 @@ header h1 {
     background-color: #1c551f;
 }
 
-/* Modal (Hidden by default) */
+/* General modal overlay */
 .modal {
     display: none; /* Hidden by default */
     position: fixed;
@@ -269,4 +269,98 @@ header h1 {
 /* Hidden class to hide Wi-Fi dropdown when the modal is shown */
 .wifi-button.hidden {
     display: none;
+}
+#inbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;  /* Align left to simulate email box structure */
+    min-width: 45vw;
+    height: 80vh;
+    margin-top: 50px;  /* Reduced margin for a more compact layout */
+    background-color: #f4f6f9;  /* Soft background color for better contrast */
+    padding: 20px 30px;  /* Padding adjusted to give the inbox more breathing space */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Soft shadow to give depth */
+    overflow-y: auto;  /* Allows scrolling if emails exceed available space */
+}
+
+#inboxTitle {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.email {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 10px;
+    height: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;  /* Slightly rounded edges for emails */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    color: #333;  /* Darker text color for better readability */
+}
+
+.email:hover {
+    background-color: #f5f5f5;  /* Light gray background on hover */
+    transform: translateX(5px);  /* Slight right shift on hover to simulate interaction */
+}
+
+.email .email-sender,
+.email .email-topic {
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: 500;
+    padding-right: 10px;
+}
+
+.email .email-sender {
+    color: #5a5a5a;
+    font-size: 14px;  /* Slightly smaller sender text for distinction */
+}
+
+.email .email-topic {
+    font-weight: bold;
+    color: #2d2d2d;
+}
+
+.deleteEmailButton {
+    color: #df0a0a;
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.2s ease;
+}
+
+.deleteEmailButton:hover {
+    color: #b30a0a;  /* Darker red for delete button hover */
+    text-decoration: underline;
+}
+
+/* Styling the email labels for "From" and "Subject" */
+.email-label {
+    font-weight: bold;
+    color: #888;
+}
+
+.email-text {
+    color: #333;
+}
+
+/* Add a separator line between the email list and the header */
+.email-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #444;
 }
