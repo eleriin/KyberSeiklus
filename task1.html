@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KyberSeiklus - Ülesanne 1</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
@@ -19,14 +20,45 @@
             <li><button class="task-btn" data-task="3">Ülesanne 3</button></li>
         </ul>
     </div>
-
-    <!-- Modal for Task 1 -->
-    <div>
-        <div>
-            <span></span>
-            <h2>Ülesanne 1: Õige Wi-Fi võrgu valimine</h2>
-            <p>Siin on ülesande sisu, kus tuleb valida õige Wi-Fi võrgu seaded ja lahendada ülesandeid.</p>
+    
+    <div class="desktop-container">
+        
+        <button class="wifi-button">
+            <i class="fas fa-wifi"> VAJUTA SIIA</i> <!-- Wi-Fi icon -->
+        </button>
+         <!-- Modal for Wi-Fi Network Selection -->
+         <div id="wifiModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Vali Wi-Fi võrk</h2>
+                <ul>
+                    <li class="wifi-network">Kohviku AVALIK võrk</li>
+                    <li class="wifi-network">Kohviku PRIVAATNE võrk</li>
+                    <li class="wifi-network">Külastaja HOTSPOT</li>
+                </ul>
+            </div>
         </div>
+    </div>
+    <!-- Task 1 Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Ülesanne 1: Õige Wi-Fi võrgu valimine</h2>
+            <p>
+                Sa istud hubases kohvikus, kus aknast paistab kevadine päike. <br> Ees ootab tähtis töökohtumine ja sul on vaja
+                enne ära saata mõned e-kirjad. <br> Kuid selleks tuleb sul kõigepealt ühendada oma LapTop Wi-Fi-ga. <br>
+                Kohvikus on mitmed võrguühendused saadaval ja sul on vaja teha valik. <br>
+                Mõni neist on turvaline, aga teistega võid ohustada oma andmete turvalisust. <br>Kas suudad valida õigesti?
+            </p>
+            <br>
+            Ekraanil kuvatakse järgmised Wi-Fi võrgu valikud:
+            <ul>
+                <li>Kohviku avalik Wi-Fi: Public_CoffeeShop (Avalik Wi-Fi)</li>
+                <li>Võõras hotspot: Person1_Hotspot (Isiklik hotspot)</li>
+                <li>Kohviku privaatne Wi-Fi: CoffeeShop_Private (Privaatne Wi-Fi)</li>
+            </ul>
+        </div>
+    </div>
     </div>
 
     <script src="script.js"></script>
